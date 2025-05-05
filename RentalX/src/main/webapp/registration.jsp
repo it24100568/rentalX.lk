@@ -71,7 +71,7 @@
 <body>
 <div class="registration-container">
     <h1>Create Account</h1>
-    <form id="registrationForm" method="post">
+    <form id="registrationForm" method="post" action="register">
         <div class="form-group">
             <label for="fullName">Full Name</label>
             <input type="text" id="fullName" name="fullName" required>

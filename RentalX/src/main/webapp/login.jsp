@@ -73,25 +73,39 @@
   </style>
 </head>
 <body>
-<div class="login-container">
-  <h1>Sign In</h1>
-  <form id="loginForm" method="post">
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
-    </div>
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" required>
-    </div>
-    <div class="forgot-password">
-      <a href="forgot-password.html">Forgot password?</a>
-    </div>
-    <button type="submit">Sign In</button>
-  </form>
-  <div class="register-link">
-    Don't have an account? <a href="registration.jsp">Sign up</a>
-  </div>
+<%--<div class="login-container">--%>
+<%--  <h1>Sign In</h1>--%>
+<%--  <form id="loginForm" method="post">--%>
+<%--    <div class="form-group">--%>
+<%--      <label for="email">Email</label>--%>
+<%--      <input type="email" id="email" name="email" required>--%>
+<%--    </div>--%>
+<%--    <div class="form-group">--%>
+<%--      <label for="password">Password</label>--%>
+<%--      <input type="password" id="password" name="password" required>--%>
+<%--    </div>--%>
+<%--    <div class="forgot-password">--%>
+<%--      <a href="forgot-password.html">Forgot password?</a>--%>
+<%--    </div>--%>
+<%--    <button type="submit">Sign In</button>--%>
+<%--  </form>--%>
+<%--  <div class="register-link">--%>
+<%--    Don't have an account? <a href="registration.jsp">Sign up</a>--%>
+<%--  </div>--%>
+<%--</div>--%>
+<h1>Login</h1>
+<form action="login" method="post">
+  <input type="text" name="username" placeholder="Username" required><br>
+  <input type="password" name="password" placeholder="Password" required><br>
+  <button type="submit">Login</button>
+</form>
+<p style="color: red;">${error}</p>
+
+<% if (request.getParameter("success") != null) { %>
+<div style="color: green; margin-bottom: 1rem;">
+  <%= request.getParameter("success") %>
 </div>
+<% } %>
+
 </body>
 </html>

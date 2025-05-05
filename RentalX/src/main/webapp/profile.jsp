@@ -112,11 +112,11 @@
 <body>
 <nav class="navbar">
     <div class="logo">
-        <a href="index.html" style="color: white; text-decoration: none;">RentalX</a>
+        <a href="index.jsp" style="color: white; text-decoration: none;">RentalX</a>
     </div>
     <div class="nav-links">
-        <a href="profile.html">My Profile</a>
-        <a href="vehicle-management.html">Vehicle Management</a>
+        <a href="profile.jsp">My Profile</a>
+        <a href="vehiclemanagement.jsp">Vehicle Management</a>
         <a href="rental-management.html">Rental & Booking</a>
         <a href="payment-management.html">Payment Management</a>
         <a href="crud-operations.html">CRUD Operations</a>
@@ -162,63 +162,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    // Check if user is logged in
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    if (!currentUser) {
-        window.location.href = 'login.html';
-    }
-
-    // Display user info
-    document.getElementById('fullName').textContent = currentUser.fullName;
-    document.getElementById('email').textContent = currentUser.email;
-    document.getElementById('phone').textContent = currentUser.phone || 'Not provided';
-    document.getElementById('registrationDate').textContent = currentUser.registrationDate;
-
-    // Load profile photo if exists
-    if (currentUser.profilePhoto) {
-        document.getElementById('profilePhoto').src = currentUser.profilePhoto;
-    }
-
-    // Handle photo upload
-    document.getElementById('photoUpload').addEventListener('change', function(e) {
-        const file = e.target.files[0];
-        if (file) {
-            // Validate file size (max 2MB)
-            if (file.size > 2 * 1024 * 1024) {
-                alert('File size exceeds 2MB limit');
-                return;
-            }
-
-            // Validate file type
-            if (!file.type.match('image/jpeg') && !file.type.match('image/png')) {
-                alert('Only JPEG or PNG images are allowed');
-                return;
-            }
-
-            const reader = new FileReader();
-            reader.onload = function(event) {
-                // Update profile photo preview
-                document.getElementById('profilePhoto').src = event.target.result;
-
-                // Save to localStorage (in a real app, you would upload to a server)
-                currentUser.profilePhoto = event.target.result;
-                localStorage.setItem('currentUser', JSON.stringify(currentUser));
-
-                alert('Profile photo updated successfully!');
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-
-
-    function logout() {
-        localStorage.removeItem('isLoggedIn');
-        localStorage.removeItem('currentUser');
-        window.location.href = 'login.html';
-    }
-</script>
-</body>
-</html>tent="width=device-width, initial-scale=1.0">
-    <title>My Profile | RentalX</t
