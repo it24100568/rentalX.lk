@@ -1,4 +1,4 @@
-package lk.sliit.rentalx.rentalx;
+package lk.sliit.rentalx.rentalx.user;
 
 import java.io.*;
 

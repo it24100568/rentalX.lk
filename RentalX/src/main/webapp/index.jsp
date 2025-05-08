@@ -63,12 +63,14 @@
                 <div class="nav__btns">
                     <a href="registration.jsp" class="btn btn__primary">Sign Up</a>
                     <a href="login.jsp" class="btn btn__secondary">Sign In</a>
+                    <a href="adminLogin.jsp" class="btn btn__three">Admin Login</a>
+
                 </div>
             </ul>
         </nav>
         <div class="section__container header__container" id="home">
             <div class="header__image">
-                <img src="assets/header.png" alt="header" />
+                <img src="header.png" alt="header" />
             </div>
             <div class="header__content">
                 <h1>Looking to save more on your rental car?</h1>
@@ -78,10 +80,10 @@
                 </p>
                 <div class="header__links">
                     <a href="#">
-                        <img src="assets/store.jpg" alt="app store" />
+                        <img src="store.jpg" alt="app store" />
                     </a>
                     <a href="#">
-                        <img src="assets/play.png" alt="play" />
+                        <img src="play.png" alt="play" />
                     </a>
                 </div>
             </div>
@@ -217,7 +219,7 @@
 
     <section class="section__container service__container" id="service">
         <div class="service__image">
-            <img src="assets/service.png" alt="service" />
+            <img src="service.png" alt="service" />
         </div>
         <div class="service__content">
             <p class="section__subheader">BEST SERVICES</p>
@@ -228,7 +230,7 @@
                 <li>
                     <span><i class="ri-price-tag-3-fill"></i></span>
                     <div>
-                        <h4>Deals for every budget</h4>
+                        <h4>Deals appfor every budget</h4>
                         <p>
                             From economy cars to luxury vehicles, we have something for
                             everyone, ensuring you get the best value for your money.
@@ -289,7 +291,7 @@
                 <span><i class="ri-car-fill"></i></span>
                 <h4>Your Choice Of Mechanic</h4>
             </div>
-            <img src="assets/experience.png" alt="experience" />
+            <img src="experience.png" alt="experience" />
         </div>
     </section>
 
@@ -303,15 +305,15 @@
                 </p>
                 <div class="download__links">
                     <a href="#">
-                        <img src="assets/store.jpg" alt="app store" />
+                        <img src="store.jpg" alt="app store" />
                     </a>
                     <a href="#">
-                        <img src="assets/play.png" alt="play" />
+                        <img src="play.png" alt="play" />
                     </a>
                 </div>
             </div>
             <div class="download__image">
-                <img src="assets/download.png" alt="download" />
+                <img src="download.png" alt="download" />
             </div>
         </div>
     </section>
@@ -378,6 +380,8 @@
             window.location.href = 'index.jsp';
         }
     }
+
+
 
 
 </body>
