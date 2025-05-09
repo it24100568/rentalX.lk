@@ -63,7 +63,7 @@
 
     <form action="admin-login" method="post" class="space-y-6">
         <div>
-            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+            <label for="email" class="block tex t-sm font-medium text-gray-700 mb-1">Email Address</label>
             <input type="email" id="email" name="email" required
                    class="input-field w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:border-blue-500">
         </div>

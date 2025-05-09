@@ -69,6 +69,7 @@
     </style>
 </head>
 <body>
+
 <div class="registration-container">
     <h1>Create Account</h1>
     <form id="registrationForm" method="post" action="register">
@@ -101,6 +102,22 @@
     <div class="login-link">
         Already have an account? <a href="login.jsp">Sign in</a>
     </div>
+    <div class="registration-container">
+        <h1>Create Account</h1>
+
+        <%-- Add this error display --%>
+        <% if (request.getAttribute("error") != null) { %>
+        <div style="color: red; margin-bottom: 1rem;">
+            <%= request.getAttribute("error") %>
+        </div>
+        <% } %>
+
+        <form id="registrationForm" method="post" action="register">
+            <!-- rest of your form -->
+        </form>
+    </div>
+
+
 </div>
 </body>
 </html>

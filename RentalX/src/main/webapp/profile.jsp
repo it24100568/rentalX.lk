@@ -116,7 +116,6 @@
     </div>
     <div class="nav-links">
         <a href="profile.jsp">My Profile</a>
-        <a href="vehiclemanagement.jsp">Vehicle Management</a>
         <a href="bookingmanagement.jsp">Rental & Booking</a>
         <a href="payment-management.html">Payment Management</a>
         <a href="crud-operations.html">CRUD Operations</a>

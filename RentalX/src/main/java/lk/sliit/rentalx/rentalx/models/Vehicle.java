@@ -1,4 +1,4 @@
-package lk.sliit.rentalx.rentalx.model;
+package lk.sliit.rentalx.rentalx.models;
 
 
 public class Vehicle {
