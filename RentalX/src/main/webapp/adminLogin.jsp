@@ -56,7 +56,7 @@
 <body class="min-h-screen flex items-center justify-center p-4">
 <div class="login-card w-full max-w-md p-8 rounded-xl shadow-2xl">
     <div class="text-center mb-8">
-        <img src="logo.jpg" alt="RentalX Logo" class="h-16 mx-auto mb-4">
+<%--        <img src="" alt="RentalX Logo" class="h-16 mx-auto mb-4">--%>
         <h1 class="text-3xl font-bold text-gray-800">Admin Portal</h1>
         <p class="text-gray-600 mt-2">Sign in to access the management dashboard</p>
     </div>
