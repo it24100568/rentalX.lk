@@ -1,98 +1,183 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>--%>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Admin Management</title>
+    <title>Admin Management | RentalX</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
+            background-color: #f3f4f6;
         }
+
+        /* Sidebar styles */
         .sidebar {
             width: 16rem;
             background-color: #3b82f6;
             color: white;
-            padding: 1rem;
+            height: 100vh;
+            position: fixed;
             transition: all 0.3s;
         }
+
+        .sidebar-content {
+            padding: 1.5rem;
+        }
+
         .sidebar-item {
             display: block;
-            padding: 0.5rem 1rem;
+            padding: 0.75rem 1rem;
             border-radius: 0.375rem;
+            color: white;
+            text-decoration: none;
             transition: all 0.2s;
+            margin-bottom: 0.5rem;
         }
+
         .sidebar-item:hover {
-            background-color: #1e3a8a;
+            background-color: rgba(255, 255, 255, 0.1);
         }
+
         .sidebar-item.active {
-            background-color: rgba(30, 64, 175, 0.68);
+            background-color: rgba(255, 255, 255, 0.2);
             font-weight: 500;
         }
-        .table-container {
-            background: white;
-            border-radius: 0.5rem;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
+
+        /* Main content area */
+        .main-content {
+            margin-left: 16rem;
+            padding: 2rem;
+            width: calc(100% - 16rem);
         }
-        .table-header {
+
+        /* Table styles */
+        .admin-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background-color: white;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .admin-table th {
+            background-color: #f9fafb;
+            padding: 0.75rem 1.5rem;
+            text-align: left;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .admin-table td {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+            color: #374151;
+        }
+
+        .admin-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .admin-table tr:hover td {
             background-color: #f9fafb;
         }
-        .table-row:hover {
-            background-color: #f8fafc;
+
+        /* Action buttons */
+        .action-link {
+            margin-right: 1rem;
+            color: #3b82f6;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .action-link:hover {
+            color: #2563eb;
+            text-decoration: underline;
+        }
+
+        .action-link.delete {
+            color: #ef4444;
+        }
+
+        .action-link.delete:hover {
+            color: #dc2626;
+        }
+
+        /* Add admin button */
+        .btn-add-admin {
+            background-color: #10b981;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+
+        .btn-add-admin:hover {
+            background-color: #059669;
         }
     </style>
 </head>
-<body class="bg-gray-100">
-<div class="flex h-screen">
+<body>
+<div class="flex">
     <!-- Sidebar -->
     <div class="sidebar">
-        <h1 class="text-2xl font-bold mb-8">RentalX Admin</h1>
-        <nav>
-            <ul class="space-y-2">
-                <li>
-                    <a href="vehiclemanagement.jsp" class="sidebar-item hover:bg-blue-700">Admin Management</a>
-                </li>
-                <li>
-                    <a href="vehicle-management?action=list" class="sidebar-item hover:bg-blue-700">Vehicle Management</a>
-                </li>
-                <li>
-                    <a href="admin-management?action=reports" class="sidebar-item">System Reports</a>
-                </li>
-            </ul>
-        </nav>
+        <div class="sidebar-content">
+            <h1 class="text-2xl font-bold mb-8 text-white">RentalX Admin</h1>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="adminList.jsp" class="sidebar-item active">Admin Management</a>
+                    </li>
+                    <li>
+                        <a href="vehiclemanagement.jsp" class="sidebar-item">Vehicle Management</a>
+                    </li>
+                    <li>
+                        <a href="dashboard.jsp" class="sidebar-item">System Reports</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </div>
 
     <!-- Main Content -->
-    <div class="flex-1 p-8 overflow-auto">
-        <div class="flex justify-between items-center mb-6">
-            <h1 class="text-2xl font-bold">Admin Management</h1>
-            <a href="admin/addAdmin.jsp"
-               class="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors">
+    <div class="main-content">
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-2xl font-bold text-gray-800">Admin Management</h1>
+            <a href="addadmin.jsp" class="btn-add-admin">
                 Add New Admin
             </a>
         </div>
 
-        <div class="table-container">
-            <table class="min-w-full divide-y divide-gray-200">
-                <thead class="table-header">
+        <div class="bg-white rounded-lg shadow overflow-hidden">
+            <table class="admin-table">
+                <thead>
                 <tr>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Email</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Login</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                    <th>Email</th>
+                    <th>Last Login</th>
+                    <th>Actions</th>
                 </tr>
                 </thead>
-                <tbody class="divide-y divide-gray-200">
+                <tbody>
                 <c:forEach var="admin" items="${admins}">
-                    <tr class="table-row">
-                        <td class="px-6 py-4 whitespace-nowrap">${admin.email}</td>
-                        <td class="px-6 py-4 whitespace-nowrap">
-                                ${admin.lastLogin != null ? admin.lastLogin : 'Never'}
+                    <tr>
+                        <td>${admin.email}</td>
+                        <td>
+                                ${admin.lastLogin != null ? admin.lastLogin : 'Never logged in'}
                         </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
+                        <td>
                             <a href="admin-management?action=edit&adminId=${admin.userId}"
-                               class="text-blue-600 hover:text-blue-900 mr-3">Edit</a>
+                               class="action-link">Edit</a>
                             <a href="admin-management?action=delete&adminId=${admin.userId}"
-                               class="text-red-600 hover:text-red-900"
+                               class="action-link delete"
                                onclick="return confirm('Are you sure you want to delete this admin?')">Delete</a>
                         </td>
                     </tr>
@@ -102,5 +187,16 @@
         </div>
     </div>
 </div>
+
+<script>
+    // Confirm before deleting an admin
+    document.querySelectorAll('.action-link.delete').forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (!confirm('Are you sure you want to delete this admin?')) {
+                e.preventDefault();
+            }
+        });
+    });
+</script>
 </body>
 </html>
