@@ -1,6 +1,16 @@
 package lk.sliit.rentalx.rentalx.model;
 
 
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+
 public class Vehicle {
     private String id;
     private String model;
@@ -86,5 +96,40 @@ public class Vehicle {
     }
 
 
-    // ... (other getters/setters)
+    // .
+    // 
+    // .. (other getters/setters)
+    @WebServlet("/vehicle")
+    public class VehicleServlet extends HttpServlet {
+        private static final String VEHICLES_FILE = "/WEB-INF/data/vehicles.txt";
+
+        protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+            String action = req.getParameter("action");
+            switch (action) {
+                case "add":
+                    addVehicle(req);
+                    break;
+                case "delete":
+                    deleteVehicle(req.getParameter("licensePlate"));
+                    break;
+            }
+        }
+
+        private void deleteVehicle(String licensePlate) {
+
+        }
+
+        private void addVehicle(HttpServletRequest req) throws IOException {
+            String data = String.join(",",
+                    req.getParameter("licensePlate"),
+                    req.getParameter("model"),
+                    req.getParameter("type"),
+                    req.getParameter("pricePerDay"));
+            Files.write(Paths.get(getServletContext().getRealPath(VEHICLES_FILE)),
+                    (data + System.lineSeparator()).getBytes(), StandardOpenOption.APPEND);
+        }
+    }
+    public String toFileString() {
+        return String.join(",", licensePlate, model, type, String.valueOf(pricePerDay));
+    }
 }

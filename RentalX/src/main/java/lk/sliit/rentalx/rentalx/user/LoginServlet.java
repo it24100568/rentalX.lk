@@ -4,7 +4,11 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @WebServlet(name = "LoginServlet", urlPatterns = {"/login"})
 public class LoginServlet extends HttpServlet {
@@ -155,4 +159,29 @@ public class LoginServlet extends HttpServlet {
         public String getPassword() { return password; }
         public String getRole() { return role; }
     }
+
+    // Add to LoginServlet.java
+    private void updateUserProfile(String email, String newName, String newPhone) throws IOException {
+        Path path = Paths.get(getServletContext().getRealPath(USERS_FILE));
+        List<String> lines = Files.readAllLines(path);
+
+        for (int i = 0; i < lines.size(); i++) {
+            String[] userData = lines.get(i).split(",");
+            if (userData[0].equals(email)) {
+                lines.set(i, String.join(",", email, newName, newPhone, userData[3]));
+                break;
+            }
+        }
+        Files.write(path, lines);
+    }
+
+    private void deleteUser(String email) throws IOException {
+        Path path = Paths.get(getServletContext().getRealPath(USERS_FILE));
+        List<String> lines = Files.readAllLines(path)
+                .stream()
+                .filter(line -> !line.startsWith(email + ","))
+                .collect(Collectors.toList());
+        Files.write(path, lines);
+    }
+
 }

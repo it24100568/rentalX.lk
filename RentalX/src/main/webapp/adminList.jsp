@@ -102,5 +102,12 @@
         </div>
     </div>
 </div>
+
+<!-- Update form action -->
+<form action="admin-management?action=add" method="post">
+    <input type="email" name="email" placeholder="Admin Email">
+    <input type="password" name="password" placeholder="Password">
+    <button type="submit">Add Admin</button>
+</form>
 </body>
 </html>
