@@ -142,11 +142,11 @@
         <a href="index.jsp" style="color: white; text-decoration: none;">RentalX</a>
     </div>
     <div class="nav-links">
-        <a href="profile.jsp">My Profile</a>
-        <a href="vehiclemanagement.jsp">Vehicle Management</a>
-        <a href="book-vehicle.html">Book a Vehicle</a>
-        <a href="rental-status.html">Rental Status</a>
-        <a href="rental-history.html">Rental History</a>
+        <a href="profile.jsp">Profile</a>
+        <a href="bookingmanagement.jsp">Booking Managment</a>
+        <a href="rentalstatus.jsp">Rental Status</a>
+        <a href="returnvehicle.jsp">Return Vehicle</a>
+        <a href="rentalhistory.jsp">History</a>
     </div>
     <div>
         <button onclick="logout()">Logout</button>
@@ -156,7 +156,7 @@
 <div class="container">
     <div class="page-header">
         <h1>Book a Vehicle</h1>
-        <button onclick="window.location.href='rental-status.html'">View My Rentals</button>
+        <button onclick="window.location.href='rental-status.jsp'">View My Rentals</button>
     </div>
 
     <div class="search-filters">
@@ -184,14 +184,14 @@
             </div>
         </div>
         <div class="filter-row">
-            <div class="filter-group">
-                <label for="pickup-date">Pickup Date</label>
-                <input type="date" id="pickup-date">
-            </div>
-            <div class="filter-group">
-                <label for="return-date">Return Date</label>
-                <input type="date" id="return-date">
-            </div>
+<%--            <div class="filter-group">--%>
+<%--                <label for="pickup-date">Pickup Date</label>--%>
+<%--                <input type="date" id="pickup-date">--%>
+<%--            </div>--%>
+<%--            <div class="filter-group">--%>
+<%--                <label for="return-date">Return Date</label>--%>
+<%--                <input type="date" id="return-date">--%>
+<%--            </div>--%>
             <div class="filter-group" style="align-self: flex-end;">
                 <button style="width: 100%;">Search</button>
             </div>
@@ -201,61 +201,61 @@
     <div class="vehicle-grid">
         <!-- Vehicle Card 1 -->
         <div class="vehicle-card">
-            <img src="https://via.placeholder.com/300x200?text=Sedan" alt="Sedan" class="vehicle-image">
+            <img src="sedan.png" alt="Sedan" class="vehicle-image">
             <div class="vehicle-details">
                 <h3 class="vehicle-name">Toyota Camry</h3>
-                <div class="vehicle-price">$45/day</div>
+                <div class="vehicle-price">LRK 15K</div>
                 <div class="vehicle-features">
                     <span class="feature-badge">5 Seats</span>
                     <span class="feature-badge">Automatic</span>
                     <span class="feature-badge">AC</span>
                 </div>
-                <button style="width: 100%;" onclick="window.location.href='book-details.html?id=1'">Book Now</button>
+                <button style="width: 100%;" onclick="window.location.href='book-details.jsp?id=1'">Book Now</button>
             </div>
         </div>
 
         <!-- Vehicle Card 2 -->
         <div class="vehicle-card">
-            <img src="https://via.placeholder.com/300x200?text=SUV" alt="SUV" class="vehicle-image">
+            <img src="crv.png" alt="SUV" class="vehicle-image">
             <div class="vehicle-details">
                 <h3 class="vehicle-name">Honda CR-V</h3>
-                <div class="vehicle-price">$65/day</div>
+                <div class="vehicle-price">LKR 25K/day</div>
                 <div class="vehicle-features">
                     <span class="feature-badge">7 Seats</span>
                     <span class="feature-badge">Automatic</span>
                     <span class="feature-badge">4WD</span>
                 </div>
-                <button style="width: 100%;" onclick="window.location.href='book-details.html?id=2'">Book Now</button>
+                <button style="width: 100%;" onclick="window.location.href='book-details.jsp?id=2'">Book Now</button>
             </div>
         </div>
 
         <!-- Vehicle Card 3 -->
         <div class="vehicle-card">
-            <img src="https://via.placeholder.com/300x200?text=Luxury" alt="Luxury" class="vehicle-image">
+            <img src="bmw.png" alt="Luxury" class="vehicle-image">
             <div class="vehicle-details">
-                <h3 class="vehicle-name">BMW 5 Series</h3>
-                <div class="vehicle-price">$120/day</div>
+                <h3 class="vehicle-name">BMW e46</h3>
+                <div class="vehicle-price">LKR 15K/day</div>
                 <div class="vehicle-features">
                     <span class="feature-badge">5 Seats</span>
                     <span class="feature-badge">Automatic</span>
                     <span class="feature-badge">Premium</span>
                 </div>
-                <button style="width: 100%;" onclick="window.location.href='book-details.html?id=3'">Book Now</button>
+                <button style="width: 100%;" onclick="window.location.href='book-details.jsp?id=3'">Book Now</button>
             </div>
         </div>
 
         <!-- Vehicle Card 4 -->
         <div class="vehicle-card">
-            <img src="https://via.placeholder.com/300x200?text=Truck" alt="Truck" class="vehicle-image">
+            <img src="raptor.png" alt="Truck" class="vehicle-image">
             <div class="vehicle-details">
                 <h3 class="vehicle-name">Ford F-150</h3>
-                <div class="vehicle-price">$85/day</div>
+                <div class="vehicle-price">LKR 20K</div>
                 <div class="vehicle-features">
                     <span class="feature-badge">5 Seats</span>
                     <span class="feature-badge">Automatic</span>
                     <span class="feature-badge">Towing</span>
                 </div>
-                <button style="width: 100%;" onclick="window.location.href='book-details.html?id=4'">Book Now</button>
+                <button style="width: 100%;" onclick="window.location.href='book-details.jsp?id=4'">Book Now</button>
             </div>
         </div>
     </div>
@@ -265,7 +265,7 @@
     function logout() {
         // Implement logout functionality
         alert('Logging out...');
-        window.location.href = 'login.html';
+        window.location.href = 'login.jsp';
     }
 </script>
 </body>

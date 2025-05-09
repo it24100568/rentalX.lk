@@ -133,11 +133,10 @@
         <a href="index.jsp" style="color: white; text-decoration: none;">RentalX</a>
     </div>
     <div class="nav-links">
-        <a href="profile.jsp">My Profile</a>
-        <a href="vehiclemanagement.jsp">Vehicle Management</a>
-        <a href="book-vehicle.html">Book a Vehicle</a>
-        <a href="rental-status.html">Rental Status</a>
-        <a href="rental-history.html">Rental History</a>
+        <a href="dashboard.jsp">Dashboard </a>
+        <a href="vehiclemanagement.jsp">Vehicle Management </a>
+        <a href="editvehicle.jsp">Edit Vehicle </a>
+        <a href="vehicleadd.jsp">Add Vehicle </a>
     </div>
     <div>
         <button onclick="logout()">Logout</button>
