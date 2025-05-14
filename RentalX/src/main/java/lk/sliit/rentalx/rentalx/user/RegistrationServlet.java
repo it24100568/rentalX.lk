@@ -137,7 +137,6 @@ public class RegistrationServlet extends HttpServlet {
         request.getRequestDispatcher(ERROR_REDIRECT).forward(request, response);
     }
 
-    // Logging method
     private void logError(String message, Exception e) {
         System.err.println(message + ": " + e.getMessage());
         e.printStackTrace();

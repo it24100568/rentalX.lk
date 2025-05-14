@@ -1,5 +1,4 @@
-package lk.sliit.rentalx.rentalx.models;
-
+package lk.sliit.rentalx.rentalx.Model;
 
 public class Vehicle {
     private String id;

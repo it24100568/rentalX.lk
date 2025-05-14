@@ -4,13 +4,49 @@
          xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
          version="6.0">
 
-<servlet>
-    <servlet-name>HelloServlet</servlet-name>
-    <servlet-class>HelloServlet</servlet-class>
-</servlet>
-<servlet-mapping>
-    <servlet-name>HelloServlet</servlet-name>
-    <url-pattern>/hello</url-pattern>
-</servlet-mapping>
-</web-app>
+    <!-- Declare HelloServlet -->
+    <servlet>
+        <servlet-name>HelloServlet</servlet-name>
+        <servlet-class>lk.sliit.rentalx.rentalx.user.HelloServlet</servlet-class>
+    </servlet>
 
+    <!-- Declare RegisterServlet -->
+    <servlet>
+        <servlet-name>RegisterServlet</servlet-name>
+        <servlet-class>lk.sliit.rentalx.rentalx.RegisterServlet</servlet-class>
+    </servlet>
+
+    <!-- Map HelloServlet to /hello -->
+    <servlet-mapping>
+        <servlet-name>HelloServlet</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+
+    <!-- Map RegisterServlet to /register -->
+    <servlet-mapping>
+        <servlet-name>RegisterServlet</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+
+        <display-name>RentalX Application</display-name>
+        <welcome-file-list>
+            <welcome-file>index.jsp</welcome-file>
+        </welcome-file-list>
+
+        <session-config>
+            <session-timeout>30</session-timeout>
+        </session-config>
+
+<!--        <error-page>-->
+<!--            <error-code>404</error-code>-->
+<!--            <location>/error.jsp</location>-->
+<!--        </error-page>-->
+
+<!--        <error-page>-->
+<!--            <error-code>500</error-code>-->
+<!--            <location>/error.jsp</location>-->
+<!--        </error-page>-->
+
+
+
+</web-app>
