@@ -10,7 +10,8 @@ public class User {
     private String address2;
     private String profileImagePath;
     private String field1;
-
+    private String field2;
+    private String field3;
     public User(String fullName, String email, String phone, String hashedPassword) {}
 
     // Full constructor with all fields
@@ -28,6 +29,10 @@ public class User {
     // Basic constructor (for backward compatibility)
     public User(String id, String name, String email, String password, boolean isBlocked) {
         this(id, name, email, password, isBlocked, "", "", "");
+    }
+
+    public static User fromStorageString(String line) {
+        return null;
     }
 
     // Encapsulation: Getters and Setters
@@ -98,7 +103,6 @@ public class User {
 
     public boolean toStorageString() {
 
-        public boolean toStorageString() {
             try {
                 String storageString = this.field1 + "|" + this.field2 + "|" + this.field3;
                 return saveToStorage(storageString);
@@ -106,9 +110,9 @@ public class User {
                 e.printStackTrace();
                 return false;
             }
-
         }
-        
-
+    private boolean saveToStorage(String storageString) {
+        return false;
     }
 }
+

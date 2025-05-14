@@ -1,5 +1,4 @@
 package lk.sliit.rentalx.rentalx.user;
-
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
