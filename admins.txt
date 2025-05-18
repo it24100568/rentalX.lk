@@ -1,0 +1,4 @@
+chamika,chamika@gmail.com,Chamika123
+yuhansa,yu@gmail.com,yuhansa123
+john,john@gmail.com,john123
+Ys,ys@gmail.com,ys123

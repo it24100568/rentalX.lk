@@ -1,0 +1,5 @@
+456789123,ranga,ranga@gmail.com,ranga123,false,No 15,,images/iStock-476085198.jpg
+741852963,sahan,sahan@gmail.com,sahan123,false,,,
+2005566,viduu,viduu0430@gmail.com,viduu0430,false,jaya road,,images/𝘓𝘪𝘵𝘵𝘭𝘦 𝘔𝘶𝘴𝘩𝘳𝘰𝘰𝘮.jpeg
+500200,Anne,anne@gmail.com,anne123,false,jaya road,,images/𝘓𝘪𝘵𝘵𝘭𝘦 𝘔𝘶𝘴𝘩𝘳𝘰𝘰𝘮.jpeg
+2000,Vidumini,it24100568@my.sliit.lk,1234,false,,,
