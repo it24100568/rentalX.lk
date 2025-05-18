@@ -1,0 +1,10 @@
+com\example\FeedbackAndReviewManagement\repository\FileBasedFeedbackRepository.class
+com\example\FeedbackAndReviewManagement\service\FeedbackService.class
+com\example\FeedbackAndReviewManagement\entity\Review.class
+com\example\FeedbackAndReviewManagement\repository\FeedbackRepository.class
+com\example\FeedbackAndReviewManagement\controller\FeedbackController.class
+com\example\FeedbackAndReviewManagement\entity\PublicReview.class
+com\example\FeedbackAndReviewManagement\FeedbackAndReviewManagementApplication.class
+com\example\FeedbackAndReviewManagement\controller\AdminController.class
+com\example\FeedbackAndReviewManagement\entity\VerifiedReview.class
+com\example\FeedbackAndReviewManagement\model\Feedback.class

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Payment Card</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center">
+<div class="container mx-auto p-6">
+    <div class="max-w-md mx-auto bg-white rounded-xl shadow-lg p-6">
+        <h1 class="text-3xl font-bold text-gray-900 mb-6 text-center">Update Payment Card</h1>
+        <form th:action="@{/payments/update}" th:object="${paymentCard}" method="post" class="space-y-4">
+            <input type="hidden" th:field="*{id}">
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Card Number (16 digits)</label>
+                <input type="text" th:field="*{cardNumber}" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            </div>
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Holder Name</label>
+                <input type="text" th:field="*{holderName}" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            </div>
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Expiry Date (MM/YY)</label>
+                <input type="text" th:field="*{expiryDate}" placeholder="MM/YY" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            </div>
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">CVV (3 digits)</label>
+                <input type="text" th:field="*{cvv}" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            </div>
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Set as Default</label>
+                <input type="checkbox" th:field="*{isDefault}" class="mr-2 leading-tight">
+                <span class="text-gray-600">Make this the default payment method</span>
+            </div>
+            <div class="flex justify-end space-x-4">
+                <a href="/payments" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition">Cancel</a>
+                <button type="submit" class="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-600 transition">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

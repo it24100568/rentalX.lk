@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <title>RentalX | Frequently Asked Questions</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .nav__btns {
+            display: flex;
+            gap: 1rem;
+        }
+        .faq-item {
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .faq-question {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav__header">
+                <div class="nav__logo">
+                    <a href="index.html">RentalX</a>
+                </div>
+                <div class="nav__menu__btn" id="menu-btn">
+                    <i class="ri-menu-line"></i>
+                </div>
+            </div>
+            <ul class="nav__links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="vehicles-catalog.html">Vehicles</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <div class="nav__btns">
+                    <a href="dashboard.html" class="btn btn__primary">Dashboard</a>
+                    <a href="#" id="loginBtn" class="btn btn__secondary">Sign In</a>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section__container py-12">
+            <div class="text-center mb-12">
+                <p class="section__subheader">FREQUENTLY ASKED QUESTIONS</p>
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">How Can We Help You?</h1>
+                <p class="max-w-3xl mx-auto text-gray-600">
+                    Find answers to the most common questions about our rental services. If you can't find what you're looking for, please contact our support team.
+                </p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <div class="mb-6">
+                        <div class="flex items-center space-x-2">
+                            <button class="py-2 px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition" data-category="all">All</button>
+                            <button class="py-2 px-4 bg-white text-gray-700 rounded-lg hover:bg-gray-100 transition" data-category="booking">Booking</button>
+                            <button class="py-2 px-4 bg-white text-gray-700 rounded-lg hover:bg-gray-100 transition" data-category="payment">Payment</button>
+                            <button class="py-2 px-4 bg-white text-gray-700 rounded-lg hover:bg-gray-100 transition" data-category="vehicles">Vehicles</button>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <!-- FAQ Item 1 -->
+                        <div class="faq-item p-4 rounded-lg hover:bg-gray-50" data-category="booking">
+                            <div class="faq-question flex justify-between items-center">
+                                <h3 class="text-lg font-semibold">How do I make a reservation?</h3>
+                                <i class="ri-arrow-down-s-line text-xl faq-icon"></i>
+                            </div>
+                            <div class="faq-answer pt-4">
+                                <p class="text-gray-600">
+                                    You can make a reservation through our website, mobile app, or by calling our customer service. To book online, simply select your desired vehicle, rental dates, and location. Follow the prompts to complete your booking. You'll receive a confirmation email with all the details of your reservation.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 2 -->
+                        <div class="faq-item p-4 rounded-lg hover:bg-gray-50" data-category="booking">
+                            <div class="faq-question flex justify-between items-center">
+                                <h3 class="text-lg font-semibold">Can I modify or cancel my reservation?</h3>
+                                <i class="ri-arrow-down-s-line text-xl faq-icon"></i>
+                            </div>
+                            <div class="faq-answer pt-4">
+                                <p class="text-gray-600">
+                                    Yes, you can modify or cancel your reservation through your account dashboard or by contacting our customer service. Modifications are subject to vehicle availability. Cancellations made at least 48 hours before the pickup time are eligible for a full refund. Cancellations made within 48 hours may be subject to a cancellation fee.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 3 -->
+                        <div class="faq-item p-4 rounded-lg hover:bg-gray-50" data-category="payment">
+                            <div class="faq-question flex justify-between items-center">
+                                <h3 class="text-lg font-semibold">What payment methods do you accept?</h3>
+                                <i class="ri-arrow-down-s-line text-xl faq-icon"></i>
+                            </div>
+                            <div class="faq-answer pt-4">
+                                <p class="text-gray-600">
+                                    We accept all major credit cards (Visa, Mastercard, American Express, Discover), debit cards, and digital payment methods like PayPal and Apple Pay. For security reasons, the credit card used for the reservation must be presented at the time of pickup along with a valid ID that matches the name on the card.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 4 -->
+                        <div class="faq-item p-4 rounded-lg hover:bg-gray-50" data-category="payment">
+                            <div class="faq-question flex justify-between items-center">
+                                <h3 class="text-lg font-semibold">Is a security deposit required?</h3>
+                                <i class="ri-arrow-down-s-line text-xl faq-icon"></i>
+                            </div>
+                            <div class="faq-answer pt-4">
+                                <p class="text-gray-600">
+                                    Yes, a security deposit is required when you pick up the vehicle. The amount varies depending on the vehicle type and rental duration. The deposit is typically held as a pre-authorization on your credit card and is released after the vehicle is returned in the same condition as when it was rented.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 5 -->
+                        <div class="faq-item p-4 rounded-lg hover:bg-gray-50" data-category="vehicles">
+                            <div class="faq-question flex justify-between items-center">
+                                <h3 class="text-lg font-semibold">What happens if the vehicle breaks down?</h3>
+                                <i class="ri-arrow-down-s-line text-xl faq-icon"></i>
+                            </div>
+                            <div class="faq-answer pt-4">
+                                <p class="text-gray-600">
+                                    All our vehicles are regularly maintained to ensure reliability. However, if you experience a breakdown, call our 24/7 roadside assistance number provided in your rental agreement. We'll arrange for assistance and, if necessary, a replacement vehicle at no additional cost to you.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <!-- FAQ Item 6 -->
+                        <div class="faq-item p-4 rounded-lg hover:bg-gray-50" data-category="vehicles">
+                            <div class="faq-question flex justify-between items-center">
+                                <h3 class="text-lg font-semibold">Do you offer one-way rentals?</h3>
+                                <i class="ri-arrow-down-s-line text-xl faq-icon"></i>
+                            </div>
+                            <div class="faq-answer pt-4">
+                                <p class="text-gray-600">
+                                    Yes, we offer one-way rentals between our locations. Additional fees may apply depending on the distance between pickup and drop-off locations. One-way rentals must be arranged in advance to ensure availability at the destination location.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 text-center">
+                    <p class="text-gray-600 mb-4">Still have questions? We're here to help!</p>
+                    <a href="contact.html" class="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition">
+                        Contact Support
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="section__container footer__container">
+            <div class="footer__col">
+                <h4>About RentalX</h4>
+                <ul class="footer__links">
+                    <li><a href="about.html">Why RentalX</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="#">Investors</a></li>
+                    <li><a href="#">Press Centers</a></li>
+                    <li><a href="#">Advertise</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>Resources</h4>
+                <ul class="footer__links">
+                    <li><a href="#">Download</a></li>
+                    <li><a href="#">Help Centers</a></li>
+                    <li><a href="faq.html">Guides</a></li>
+                    <li><a href="#">Partner Network</a></li>
+                    <li><a href="#">Mechanics</a></li>
+                    <li><a href="#">Developer</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>Extras</h4>
+                <ul class="footer__links">
+                    <li><a href="vehicles-catalog.html">Rental Deal</a></li>
+                    <li><a href="#">Repair Shop</a></li>
+                    <li><a href="rentallist.html">View Booking</a></li>
+                    <li><a href="#">Hire Companies</a></li>
+                    <li><a href="#">New Offers</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="section__container footer__bar">
+            <h4>RentalX</h4>
+            <p>Copyright © 2024 PG 182 . All rights reserved.</p>
+            <ul class="footer__socials">
+                <li>
+                    <a href="#"><i class="ri-facebook-fill"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="ri-twitter-fill"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="ri-google-fill"></i></a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const navLinks = document.getElementById('nav-links');
+        
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+        
+        // Login button functionality
+        document.getElementById('loginBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            // Show login modal or redirect to login page
+            alert('Login functionality would be implemented here');
+        });
+        
+        // FAQ accordion functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+        
+        // FAQ category filtering
+        const categoryButtons = document.querySelectorAll('[data-category]');
+        
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                categoryButtons.forEach(btn => {
+                    btn.classList.remove('bg-blue-500', 'text-white');
+                    btn.classList.add('bg-white', 'text-gray-700');
+                });
+                
+                // Add active class to clicked button
+                button.classList.remove('bg-white', 'text-gray-700');
+                button.classList.add('bg-blue-500', 'text-white');
+                
+                const category = button.getAttribute('data-category');
+                
+                // Show/hide FAQ items based on category
+                faqItems.forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

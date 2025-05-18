@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <title>RentalX | Contact Us</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .nav__btns {
+            display: flex;
+            gap: 1rem;
+        }
+        .contact-info-card {
+            transition: all 0.3s ease;
+        }
+        .contact-info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav__header">
+                <div class="nav__logo">
+                    <a href="index.html">RentalX</a>
+                </div>
+                <div class="nav__menu__btn" id="menu-btn">
+                    <i class="ri-menu-line"></i>
+                </div>
+            </div>
+            <ul class="nav__links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="vehicles-catalog.html">Vehicles</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <div class="nav__btns">
+                    <a href="dashboard.html" class="btn btn__primary">Dashboard</a>
+                    <a href="#" id="loginBtn" class="btn btn__secondary">Sign In</a>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="section__container py-12">
+            <div class="text-center mb-12">
+                <p class="section__subheader">CONTACT US</p>
+                <h1 class="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h1>
+                <p class="max-w-3xl mx-auto text-gray-600">
+                    Have questions or need assistance? Our team is here to help. Reach out to us through any of the channels below or fill out the contact form.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div class="contact-info-card bg-white rounded-xl shadow-md p-6 text-center">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+                        <i class="ri-map-pin-line text-blue-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Our Location</h3>
+                    <p class="text-gray-600">
+                        123 Rental Street<br>
+                        Colombo, Sri Lanka 10100
+                    </p>
+                </div>
+                
+                <div class="contact-info-card bg-white rounded-xl shadow-md p-6 text-center">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+                        <i class="ri-phone-line text-blue-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Phone Number</h3>
+                    <p class="text-gray-600">
+                        Customer Service: +94 11 234 5678<br>
+                        Roadside Assistance: +94 11 234 5679
+                    </p>
+                </div>
+                
+                <div class="contact-info-card bg-white rounded-xl shadow-md p-6 text-center">
+                    <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+                        <i class="ri-mail-line text-blue-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Email Address</h3>
+                    <p class="text-gray-600">
+                        General Inquiries: info@rentalx.com<br>
+                        Support: support@rentalx.com
+                    </p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                <div class="bg-white rounded-xl shadow-lg p-6">
+                    <h2 class="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
+                    <form class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label for="firstName" class="block text-sm font-medium text-gray-700 mb-1">First Name</label>
+                                <input type="text" id="firstName" name="firstName" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            </div>
+                            <div>
+                                <label for="lastName" class="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
+                                <input type="text" id="lastName" name="lastName" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                            <input type="email" id="email" name="email" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject</label>
+                            <select id="subject" name="subject" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                                <option value="">Select a subject</option>
+                                <option value="General Inquiry">General Inquiry</option>
+                                <option value="Reservation">Reservation</option>
+                                <option value="Support">Support</option>
+                                <option value="Feedback">Feedback</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                            <textarea id="message" name="message" rows="5" class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-500 text-white p-3 rounded-lg hover:bg-blue-600 transition">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+                
+                <div>
+                    <div class="bg-white rounded-xl shadow-lg p-6 mb-6">
+                        <h2 class="text-2xl font-bold text-gray-900 mb-4">Business Hours</h2>
+                        <ul class="space-y-3">
+                            <li class="flex justify-between">
+                                <span class="text-gray-600">Monday - Friday:</span>
+                                <span class="font-medium">8:00 AM - 8:00 PM</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-gray-600">Saturday:</span>
+                                <span class="font-medium">9:00 AM - 6:00 PM</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-gray-600">Sunday:</span>
+                                <span class="font-medium">10:00 AM - 4:00 PM</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-gray-600">Public Holidays:</span>
+                                <span class="font-medium">10:00 AM - 4:00 PM</span>
+                            </li>
+                        </ul>
+                        <p class="mt-4 text-gray-600">
+                            <strong>Note:</strong> Roadside assistance is available 24/7 for all customers.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126743.58585989228!2d79.7861641!3d6.9218374!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae253d10f7a7003%3A0x320b2e4d32d3838d!2sColombo%2C%20Sri%20Lanka!5e0!3m2!1sen!2sus!4v1621345678901!5m2!1sen!2sus" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="section__container footer__container">
+            <div class="footer__col">
+                <h4>About RentalX</h4>
+                <ul class="footer__links">
+                    <li><a href="about.html">Why RentalX</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="#">Investors</a></li>
+                    <li><a href="#">Press Centers</a></li>
+                    <li><a href="#">Advertise</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>Resources</h4>
+                <ul class="footer__links">
+                    <li><a href="#">Download</a></li>
+                    <li><a href="#">Help Centers</a></li>
+                    <li><a href="faq.html">Guides</a></li>
+                    <li><a href="#">Partner Network</a></li>
+                    <li><a href="#">Mechanics</a></li>
+                    <li><a href="#">Developer</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>Extras</h4>
+                <ul class="footer__links">
+                    <li><a href="vehicles-catalog.html">Rental Deal</a></li>
+                    <li><a href="#">Repair Shop</a></li>
+                    <li><a href="rentallist.html">View Booking</a></li>
+                    <li><a href="#">Hire Companies</a></li>
+                    <li><a href="#">New Offers</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="section__container footer__bar">
+            <h4>RentalX</h4>
+            <p>Copyright © 2024 PG 182 . All rights reserved.</p>
+            <ul class="footer__socials">
+                <li>
+                    <a href="#"><i class="ri-facebook-fill"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="ri-twitter-fill"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="ri-google-fill"></i></a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const navLinks = document.getElementById('nav-links');
+        
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+        
+        // Login button functionality
+        document.getElementById('loginBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            // Show login modal or redirect to login page
+            alert('Login functionality would be implemented here');
+        });
+    </script>
+</body>
+</html>

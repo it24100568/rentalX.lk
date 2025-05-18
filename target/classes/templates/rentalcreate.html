@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create New Rental</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center">
+<div class="container mx-auto p-6">
+    <div class="max-w-md mx-auto bg-white rounded-xl shadow-lg p-6">
+        <h1 class="text-3xl font-bold text-gray-900 mb-6 text-center">Create New Rental</h1>
+        <form th:action="@{/rentals/create}" th:object="${rental}" method="post" class="space-y-4">
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Vehicle</label>
+                <select th:field="*{vehicleId}" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    <option value="">Select Vehicle</option>
+                    <option th:each="vehicle : ${vehicles}" th:value="${vehicle.id}" th:text="${vehicle.model + ' (' + vehicle.type + ', $' + vehicle.price + '/day)'}"></option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Customer Name</label>
+                <input th:field="*{customerName}" type="text" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            </div>
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Start Date</label>
+                <input th:field="*{startDate}" type="datetime-local" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            </div>
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">End Date</label>
+                <input th:field="*{endDate}" type="datetime-local" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            </div>
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Rental Type</label>
+                <select th:field="*{rentalType}" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    <option value="">Select Rental Type</option>
+                    <option value="hourly">Hourly</option>
+                    <option value="daily">Daily</option>
+                    <option value="weekly">Weekly</option>
+                </select>
+            </div>
+            <input type="hidden" th:field="*{status}" th:value="'active'" />
+            <div class="flex justify-end space-x-4">
+                <a th:href="@{/rentals}" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition">Cancel</a>
+                <button type="submit" class="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-600 transition">Submit</button>
+            </div>
+            <p th:if="${error}" class="text-red-500 mt-2 text-center" th:text="${error}"></p>
+        </form>
+    </div>
+</div>
+</body>
+</html>

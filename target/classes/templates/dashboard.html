@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <title>RentalX | Dashboard</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .nav__btns {
+            display: flex;
+            gap: 1rem;
+        }
+        .dashboard-card {
+            transition: all 0.3s ease;
+        }
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav__header">
+                <div class="nav__logo">
+                    <a href="index.html">RentalX</a>
+                </div>
+                <div class="nav__menu__btn" id="menu-btn">
+                    <i class="ri-menu-line"></i>
+                </div>
+            </div>
+            <ul class="nav__links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="vehicles-catalog.html">Vehicles</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <div class="nav__btns">
+                    <a href="dashboard.html" class="btn btn__primary">Dashboard</a>
+                    <a href="#" id="logoutBtn" class="btn btn__secondary">Logout</a>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="section__container py-12">
+        <h1 class="text-3xl font-bold text-gray-900 mb-8">User Dashboard</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
+            <div class="dashboard-card bg-blue-500 text-white rounded-xl shadow-lg p-6 text-center">
+                <i class="ri-car-line text-4xl mb-2"></i>
+                <h3 class="text-xl font-semibold mb-1">Active Rentals</h3>
+                <p class="text-3xl font-bold">2</p>
+            </div>
+            
+            <div class="dashboard-card bg-green-500 text-white rounded-xl shadow-lg p-6 text-center">
+                <i class="ri-history-line text-4xl mb-2"></i>
+                <h3 class="text-xl font-semibold mb-1">Past Rentals</h3>
+                <p class="text-3xl font-bold">8</p>
+            </div>
+            
+            <div class="dashboard-card bg-purple-500 text-white rounded-xl shadow-lg p-6 text-center">
+                <i class="ri-wallet-3-line text-4xl mb-2"></i>
+                <h3 class="text-xl font-semibold mb-1">Payment Cards</h3>
+                <p class="text-3xl font-bold">3</p>
+            </div>
+            
+            <div class="dashboard-card bg-amber-500 text-white rounded-xl shadow-lg p-6 text-center">
+                <i class="ri-customer-service-2-line text-4xl mb-2"></i>
+                <h3 class="text-xl font-semibold mb-1">Support Tickets</h3>
+                <p class="text-3xl font-bold">1</p>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-2xl font-bold text-gray-900">Current Rentals</h2>
+                    <a href="rentallist.html" class="text-blue-500 hover:underline flex items-center">
+                        View All <i class="ri-arrow-right-line ml-1"></i>
+                    </a>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition">
+                        <div class="flex justify-between">
+                            <h3 class="font-semibold">Toyota Camry (Car)</h3>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Active</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mt-1">Rental Period: May 15, 2025 - May 20, 2025</p>
+                        <div class="flex justify-between items-center mt-2">
+                            <p class="text-gray-700">$45.00/day</p>
+                            <a href="#" class="text-blue-500 hover:underline text-sm">Details</a>
+                        </div>
+                    </div>
+                    
+                    <div class="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition">
+                        <div class="flex justify-between">
+                            <h3 class="font-semibold">Honda CBR (Bike)</h3>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">Active</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mt-1">Rental Period: May 17, 2025 - May 19, 2025</p>
+                        <div class="flex justify-between items-center mt-2">
+                            <p class="text-gray-700">$25.00/day</p>
+                            <a href="#" class="text-blue-500 hover:underline text-sm">Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-2xl font-bold text-gray-900">Payment Methods</h2>
+                    <a href="paymentlist.html" class="text-blue-500 hover:underline flex items-center">
+                        View All <i class="ri-arrow-right-line ml-1"></i>
+                    </a>
+                </div>
+                
+                <div class="space-y-4">
+                    <div class="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition">
+                        <div class="flex justify-between">
+                            <h3 class="font-semibold">Visa ending in 4242</h3>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Default</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mt-1">John Doe • Expires 05/27</p>
+                        <div class="flex justify-end mt-2">
+                            <a href="#" class="text-blue-500 hover:underline text-sm mr-3">Edit</a>
+                            <a href="#" class="text-red-500 hover:underline text-sm">Remove</a>
+                        </div>
+                    </div>
+                    
+                    <div class="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition">
+                        <div class="flex justify-between">
+                            <h3 class="font-semibold">Mastercard ending in 8888</h3>
+                        </div>
+                        <p class="text-gray-600 text-sm mt-1">John Doe • Expires 09/26</p>
+                        <div class="flex justify-end mt-2">
+                            <a href="#" class="text-blue-500 hover:underline text-sm mr-3">Edit</a>
+                            <a href="#" class="text-red-500 hover:underline text-sm">Remove</a>
+                        </div>
+                    </div>
+                    
+                    <a href="paymentcreate.html" class="block text-center bg-gray-100 rounded-lg p-3 hover:bg-gray-200 transition">
+                        <i class="ri-add-line mr-1"></i> Add New Payment Method
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="section__container footer__container">
+            <div class="footer__col">
+                <h4>About RentalX</h4>
+                <ul class="footer__links">
+                    <li><a href="about.html">Why RentalX</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="#">Investors</a></li>
+                    <li><a href="#">Press Centers</a></li>
+                    <li><a href="#">Advertise</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>Resources</h4>
+                <ul class="footer__links">
+                    <li><a href="#">Download</a></li>
+                    <li><a href="#">Help Centers</a></li>
+                    <li><a href="faq.html">Guides</a></li>
+                    <li><a href="#">Partner Network</a></li>
+                    <li><a href="#">Mechanics</a></li>
+                    <li><a href="#">Developer</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>Extras</h4>
+                <ul class="footer__links">
+                    <li><a href="vehicles-catalog.html">Rental Deal</a></li>
+                    <li><a href="#">Repair Shop</a></li>
+                    <li><a href="rentallist.html">View Booking</a></li>
+                    <li><a href="#">Hire Companies</a></li>
+                    <li><a href="#">New Offers</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="section__container footer__bar">
+            <h4>RentalX</h4>
+            <p>Copyright © 2024 PG 182 . All rights reserved.</p>
+            <ul class="footer__socials">
+                <li>
+                    <a href="#"><i class="ri-facebook-fill"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="ri-twitter-fill"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="ri-google-fill"></i></a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const navLinks = document.getElementById('nav-links');
+        
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+        
+        // Logout functionality
+        document.getElementById('logoutBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            if(confirm('Are you sure you want to logout?')) {
+                // Redirect to home page or perform logout action
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>
