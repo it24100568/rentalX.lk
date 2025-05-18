@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rental List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+<div class="container mx-auto p-6">
+    <div class="flex justify-between items-center mb-6">
+        <h1 class="text-3xl font-bold text-gray-900">Rental List</h1>
+        <a th:href="@{/rentals/create}" class="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-600 transition">Add New Rental</a>
+    </div>
+    <div th:if="${error}" class="text-center text-red-500 mb-6" th:text="${error}"></div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div th:each="rental : ${rentals}" class="bg-white shadow-lg rounded-xl p-4 hover:shadow-xl transition">
+            <div class="space-y-2">
+                <h2 class="text-xl font-semibold text-gray-800">Rental ID: <span th:text="${rental.id}"></span></h2>
+                <p class="text-gray-600"><strong>Vehicle ID:</strong> <span th:text="${rental.vehicleId}"></span></p>
+                <p class="text-gray-600"><strong>Customer:</strong> <span th:text="${rental.customerName}"></span></p>
+                <p class="text-gray-600"><strong>Start Date:</strong> <span th:text="${#temporals.format(rental.startDate, 'yyyy-MM-dd HH:mm')}"></span></p>
+                <p class="text-gray-600"><strong>End Date:</strong> <span th:text="${#temporals.format(rental.endDate, 'yyyy-MM-dd HH:mm')}"></span></p>
+                <p class="text-gray-600"><strong>Return Date:</strong> <span th:text="${rental.returnDate != null ? #temporals.format(rental.returnDate, 'yyyy-MM-dd HH:mm') : 'Not returned'}"></span></p>
+                <p class="text-gray-600"><strong>Rental Type:</strong> <span th:text="${rental.rentalType}"></span></p>
+                <p class="text-gray-600"><strong>Status:</strong> <span th:text="${rental.status}"></span></p>
+                <p class="text-gray-600"><strong>Total Fee:</strong> $<span th:text="${#numbers.formatDecimal(rental.totalFee, 2, 2)}"></span></p>
+            </div>
+            <div class="flex justify-end mt-4 space-x-2">
+                <a th:href="@{/rentals/update/{id}(id=${rental.id})}" class="bg-blue-500 text-white px-3 py-1 rounded-lg hover:bg-blue-600 transition">Update</a>
+                <a th:href="@{/rentals/delete/{id}(id=${rental.id})}" class="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600 transition">Delete</a>
+            </div>
+        </div>
+    </div>
+    <div th:if="${#lists.isEmpty(rentals)}" class="text-center text-gray-500 mt-6">
+        <p>No rentals found. Be the first to add one!</p>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <title>RentalX | Vehicle Catalog</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .nav__btns {
+            display: flex;
+            gap: 1rem;
+        }
+        .vehicle-card {
+            transition: all 0.3s ease;
+        }
+        .vehicle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav__header">
+                <div class="nav__logo">
+                    <a href="index.html">RentalX</a>
+                </div>
+                <div class="nav__menu__btn" id="menu-btn">
+                    <i class="ri-menu-line"></i>
+                </div>
+            </div>
+            <ul class="nav__links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="vehicles-catalog.html">Vehicles</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <div class="nav__btns">
+                    <a href="dashboard.html" class="btn btn__primary">Dashboard</a>
+                    <a href="#" id="loginBtn" class="btn btn__secondary">Sign In</a>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="section__container py-12">
+        <h1 class="text-3xl font-bold text-gray-900 mb-8">Vehicle Catalog</h1>
+        
+        <div class="mb-8">
+            <div class="bg-white rounded-xl shadow-lg p-6">
+                <h2 class="text-xl font-semibold mb-4">Filter Vehicles</h2>
+                <form class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Vehicle Type</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="">All Types</option>
+                            <option value="Car">Car</option>
+                            <option value="Bike">Bike</option>
+                            <option value="Truck">Truck</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Price Range</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="">Any Price</option>
+                            <option value="0-25">$0 - $25 per day</option>
+                            <option value="25-50">$25 - $50 per day</option>
+                            <option value="50-100">$50 - $100 per day</option>
+                            <option value="100+">$100+ per day</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Availability</label>
+                        <select class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="">All</option>
+                            <option value="available">Available Now</option>
+                        </select>
+                    </div>
+                    
+                    <div class="flex items-end">
+                        <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded-lg hover:bg-blue-600 transition">
+                            Apply Filters
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Vehicle Card 1 -->
+            <div class="vehicle-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="h-48 bg-gray-200 relative">
+                    <img src="https://via.placeholder.com/400x200?text=Toyota+Camry" alt="Toyota Camry" class="w-full h-full object-cover">
+                    <span class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">Available</span>
+                </div>
+                <div class="p-5">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold">Toyota Camry</h3>
+                        <span class="text-gray-600 font-semibold">$45/day</span>
+                    </div>
+                    <p class="text-gray-500 mb-3">Sedan • Automatic • 5 Seats</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Air Conditioning</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Bluetooth</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Cruise Control</span>
+                    </div>
+                    <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
+                        Rent Now
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Vehicle Card 2 -->
+            <div class="vehicle-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="h-48 bg-gray-200 relative">
+                    <img src="https://via.placeholder.com/400x200?text=Honda+CBR" alt="Honda CBR" class="w-full h-full object-cover">
+                    <span class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">Available</span>
+                </div>
+                <div class="p-5">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold">Honda CBR</h3>
+                        <span class="text-gray-600 font-semibold">$25/day</span>
+                    </div>
+                    <p class="text-gray-500 mb-3">Sport Bike • Manual • 1 Seat</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Helmet Included</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">ABS</span>
+                    </div>
+                    <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
+                        Rent Now
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Vehicle Card 3 -->
+            <div class="vehicle-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="h-48 bg-gray-200 relative">
+                    <img src="https://via.placeholder.com/400x200?text=Ford+F-150" alt="Ford F-150" class="w-full h-full object-cover">
+                    <span class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">Available</span>
+                </div>
+                <div class="p-5">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold">Ford F-150</h3>
+                        <span class="text-gray-600 font-semibold">$75/day</span>
+                    </div>
+                    <p class="text-gray-500 mb-3">Truck • Automatic • 5 Seats</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">4x4</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Towing Package</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">GPS</span>
+                    </div>
+                    <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
+                        Rent Now
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Vehicle Card 4 -->
+            <div class="vehicle-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="h-48 bg-gray-200 relative">
+                    <img src="https://via.placeholder.com/400x200?text=Tesla+Model+3" alt="Tesla Model 3" class="w-full h-full object-cover">
+                    <span class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">Available</span>
+                </div>
+                <div class="p-5">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold">Tesla Model 3</h3>
+                        <span class="text-gray-600 font-semibold">$95/day</span>
+                    </div>
+                    <p class="text-gray-500 mb-3">Electric • Automatic • 5 Seats</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Autopilot</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Premium Sound</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Supercharging</span>
+                    </div>
+                    <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
+                        Rent Now
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Vehicle Card 5 -->
+            <div class="vehicle-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="h-48 bg-gray-200 relative">
+                    <img src="https://via.placeholder.com/400x200?text=Vespa+Primavera" alt="Vespa Primavera" class="w-full h-full object-cover">
+                    <span class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">Available</span>
+                </div>
+                <div class="p-5">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold">Vespa Primavera</h3>
+                        <span class="text-gray-600 font-semibold">$20/day</span>
+                    </div>
+                    <p class="text-gray-500 mb-3">Scooter • Automatic • 2 Seats</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Helmet Included</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Storage Box</span>
+                    </div>
+                    <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
+                        Rent Now
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Vehicle Card 6 -->
+            <div class="vehicle-card bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="h-48 bg-gray-200 relative">
+                    <img src="https://via.placeholder.com/400x200?text=Mercedes+Sprinter" alt="Mercedes Sprinter" class="w-full h-full object-cover">
+                    <span class="absolute top-2 right-2 bg-green-500 text-white text-xs font-bold px-2 py-1 rounded">Available</span>
+                </div>
+                <div class="p-5">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="text-xl font-bold">Mercedes Sprinter</h3>
+                        <span class="text-gray-600 font-semibold">$120/day</span>
+                    </div>
+                    <p class="text-gray-500 mb-3">Van • Automatic • 12 Seats</p>
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Air Conditioning</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">Bluetooth</span>
+                        <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">GPS</span>
+                    </div>
+                    <button class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
+                        Rent Now
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-8 flex justify-center">
+            <nav class="inline-flex rounded-md shadow">
+                <a href="#" class="py-2 px-4 bg-blue-500 text-white font-medium rounded-l-md hover:bg-blue-600">1</a>
+                <a href="#" class="py-2 px-4 bg-white text-gray-700 font-medium hover:bg-gray-50">2</a>
+                <a href="#" class="py-2 px-4 bg-white text-gray-700 font-medium hover:bg-gray-50">3</a>
+                <a href="#" class="py-2 px-4 bg-white text-gray-700 font-medium rounded-r-md hover:bg-gray-50">Next</a>
+            </nav>
+        </div>
+    </main>
+
+    <footer>
+        <div class="section__container footer__container">
+            <div class="footer__col">
+                <h4>About RentalX</h4>
+                <ul class="footer__links">
+                    <li><a href="about.html">Why RentalX</a></li>
+                    <li><a href="about.html">Our Story</a></li>
+                    <li><a href="#">Investors</a></li>
+                    <li><a href="#">Press Centers</a></li>
+                    <li><a href="#">Advertise</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>Resources</h4>
+                <ul class="footer__links">
+                    <li><a href="#">Download</a></li>
+                    <li><a href="#">Help Centers</a></li>
+                    <li><a href="faq.html">Guides</a></li>
+                    <li><a href="#">Partner Network</a></li>
+                    <li><a href="#">Mechanics</a></li>
+                    <li><a href="#">Developer</a></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h4>Extras</h4>
+                <ul class="footer__links">
+                    <li><a href="vehicles-catalog.html">Rental Deal</a></li>
+                    <li><a href="#">Repair Shop</a></li>
+                    <li><a href="rentallist.html">View Booking</a></li>
+                    <li><a href="#">Hire Companies</a></li>
+                    <li><a href="#">New Offers</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="section__container footer__bar">
+            <h4>RentalX</h4>
+            <p>Copyright © 2024 PG 182 . All rights reserved.</p>
+            <ul class="footer__socials">
+                <li>
+                    <a href="#"><i class="ri-facebook-fill"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="ri-twitter-fill"></i></a>
+                </li>
+                <li>
+                    <a href="#"><i class="ri-google-fill"></i></a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const navLinks = document.getElementById('nav-links');
+        
+        menuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('open');
+        });
+        
+        // Login button functionality
+        document.getElementById('loginBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            // Show login modal or redirect to login page
+            alert('Login functionality would be implemented here');
+        });
+    </script>
+</body>
+</html>
