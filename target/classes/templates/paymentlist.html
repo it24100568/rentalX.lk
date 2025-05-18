@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment Card List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen">
+<div class="container mx-auto p-6">
+    <h1 class="text-3xl font-bold text-gray-900 mb-6">Payment Card List</h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div th:each="card : ${paymentCards}" class="bg-white shadow-lg rounded-xl p-4 hover:shadow-xl transition">
+            <div class="space-y-2">
+                <h2 class="text-xl font-semibold text-gray-800">Card Number: <span th:text="${card.cardNumber}"></span></h2>
+                <p class="text-gray-600"><strong>Holder Name:</strong> <span th:text="${card.holderName}"></span></p>
+                <p class="text-gray-600"><strong>Expiry Date:</strong> <span th:text="${card.expiryDate}"></span></p>
+                <p class="text-gray-600"><strong>CVV:</strong> <span th:text="${card.cvv}"></span></p>
+                <p class="text-gray-600"><strong>Default:</strong> <span th:text="${card.isDefault ? 'Yes' : 'No'}"></span></p>
+            </div>
+            <div class="flex justify-end mt-4 space-x-2">
+                <a th:href="@{/payments/update/}+${card.id}" class="bg-blue-500 text-white px-3 py-1 rounded-lg hover:bg-blue-600 transition">Update</a>
+                <a th:href="@{/payments/delete/}+${card.id}" class="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600 transition" onclick="return confirm('Are you sure?')">Delete</a>
+            </div>
+        </div>
+    </div>
+    <div th:if="${#lists.isEmpty(paymentCards)}" class="text-center text-gray-500 mt-6">
+        <p>No payment cards found. Add one to get started!</p>
+    </div>
+    <div class="mt-6">
+        <a href="/payments/create" class="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-600 transition">Add New Card</a>
+    </div>
+</div>
+</body>
+</html>

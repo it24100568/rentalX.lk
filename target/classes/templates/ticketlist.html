@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Ticket List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+    }
+    .nav__btns {
+        display: flex;
+        gap: 1rem;
+    }
+    .team-member {
+        transition: all 0.3s ease;
+    }
+    .team-member:hover {
+        transform: translateY(-5px);
+    }
+</style>
+<body class="bg-gray-50 min-h-screen">
+<div class="container mx-auto p-6">
+    <h1 class="text-3xl font-bold text-gray-900 mb-6">Support Ticket List</h1>
+    <div class="overflow-x-auto">
+        <table class="min-w-full bg-white shadow-lg rounded-xl">
+            <thead>
+            <tr class="bg-gray-200 text-gray-700">
+                <th class="py-3 px-4 text-left">ID</th>
+                <th class="py-3 px-4 text-left">Type</th>
+                <th class="py-3 px-4 text-left">Description</th>
+                <th class="py-3 px-4 text-left">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="ticket : ${tickets}" class="border-b hover:bg-gray-100">
+                <td class="py-3 px-4" th:text="${ticket.id}"></td>
+                <td class="py-3 px-4" th:text="${ticket.ticketType}"></td>
+                <td class="py-3 px-4" th:text="${ticket.description}"></td>
+                <td class="py-3 px-4">
+                    <a th:href="@{/tickets/update/}+${ticket.id}" class="bg-blue-500 text-white px-3 py-1 rounded-lg hover:bg-blue-600 transition mr-2">Update</a>
+                    <a th:href="@{/tickets/delete/}+${ticket.id}" class="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600 transition" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div th:if="${#lists.isEmpty(tickets)}" class="text-center text-gray-500 mt-6">
+        <p>No tickets found. Create one to get started!</p>
+    </div>
+    <div class="mt-6">
+        <a href="/tickets/create" class="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-600 transition">Create New Ticket</a>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Vehicle List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #3b82f6;
+            --primary-color-dark: #2563eb;
+            --secondary-color: #1e293b;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --white: #ffffff;
+            --max-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            color: var(--text-dark);
+            background-color: #f8fafc;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn__primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn__primary:hover {
+            background-color: var(--primary-color-dark);
+        }
+
+        .btn__secondary {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn__secondary:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* Table Styles */
+        .overflow-x-auto {
+            overflow-x: auto;
+        }
+
+        .min-w-full {
+            min-width: 100%;
+        }
+
+        .bg-white {
+            background-color: var(--white);
+        }
+
+        .shadow-md {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .rounded-lg {
+            border-radius: 0.5rem;
+        }
+
+        .bg-gray-200 {
+            background-color: #e5e7eb;
+        }
+
+        .py-3 {
+            padding-top: 0.75rem;
+            padding-bottom: 0.75rem;
+        }
+
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .font-semibold {
+            font-weight: 600;
+        }
+
+        .border-b {
+            border-bottom-width: 1px;
+            border-bottom-color: #e5e7eb;
+        }
+
+        .hover\:bg-gray-50:hover {
+            background-color: #f9fafb;
+        }
+
+        /* Utility Classes */
+        .flex {
+            display: flex;
+        }
+
+        .justify-between {
+            justify-content: space-between;
+        }
+
+        .items-center {
+            align-items: center;
+        }
+
+        .mb-6 {
+            margin-bottom: 1.5rem;
+        }
+
+        .text-3xl {
+            font-size: 1.875rem;
+            line-height: 2.25rem;
+        }
+
+        .font-bold {
+            font-weight: 700;
+        }
+
+        .text-gray-900 {
+            color: #111827;
+        }
+
+        .space-x-4 > :not([hidden]) ~ :not([hidden]) {
+            margin-right: 0;
+            margin-left: 1rem;
+        }
+
+        .p-2 {
+            padding: 0.5rem;
+        }
+
+        .border {
+            border-width: 1px;
+        }
+
+        .border-gray-300 {
+            border-color: #d1d5db;
+        }
+
+        .focus\:outline-none:focus {
+            outline: 2px solid transparent;
+            outline-offset: 2px;
+        }
+
+        .focus\:ring-2:focus {
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+        }
+
+        .focus\:ring-blue-500:focus {
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+        }
+
+        .bg-blue-500 {
+            background-color: #3b82f6;
+        }
+
+        .text-white {
+            color: #ffffff;
+        }
+
+        .hover\:bg-blue-600:hover {
+            background-color: #2563eb;
+        }
+
+        .transition {
+            transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+
+        .bg-teal-500 {
+            background-color: #14b8a6;
+        }
+
+        .hover\:bg-teal-600:hover {
+            background-color: #0d9488;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-red-500 {
+            color: #ef4444;
+        }
+
+        .mt-6 {
+            margin-top: 1.5rem;
+        }
+
+        .text-gray-500 {
+            color: #6b7280;
+        }
+
+        .mr-2 {
+            margin-right: 0.5rem;
+        }
+
+        .bg-red-500 {
+            background-color: #ef4444;
+        }
+
+        .hover\:bg-red-600:hover {
+            background-color: #dc2626;
+        }
+
+        /* Responsive Classes */
+        @media (min-width: 640px) {
+            .sm\:flex {
+                display: flex;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .md\:grid {
+                display: grid;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .lg\:flex {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+<div class="container mx-auto p-6">
+    <div class="flex justify-between items-center mb-6">
+        <h1 class="text-3xl font-bold text-gray-900">Vehicle List</h1>
+        <div class="flex space-x-4">
+            <form th:action="@{/vehicles}" method="get" class="flex space-x-2">
+                <select name="sort" class="p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="">Select Sort Criterion</option>
+                    <option value="availability" th:selected="${currentSort == 'availability'}">Sort by Availability</option>
+                    <option value="price" th:selected="${currentSort == 'price'}">Sort by Price</option>
+                </select>
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">Sort</button>
+            </form>
+            <a th:href="@{/vehicles/create}" class="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-600 transition">Add New Vehicle</a>
+        </div>
+    </div>
+    <div th:if="${error}" class="text-center text-red-500 mb-6" th:text="${error}"></div>
+    <div class="overflow-x-auto">
+        <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+            <thead class="bg-gray-200">
+            <tr>
+                <th class="py-3 px-4 text-left text-gray-600 font-semibold">Vehicle ID</th>
+                <th class="py-3 px-4 text-left text-gray-600 font-semibold">Model</th>
+                <th class="py-3 px-4 text-left text-gray-600 font-semibold">Type</th>
+                <th class="py-3 px-4 text-left text-gray-600 font-semibold">Price ($/day)</th>
+                <th class="py-3 px-4 text-left text-gray-600 font-semibold">Available</th>
+                <th class="py-3 px-4 text-left text-gray-600 font-semibold">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="vehicle : ${vehicles}" class="border-b hover:bg-gray-50">
+                <td class="py-3 px-4" th:text="${vehicle.id}"></td>
+                <td class="py-3 px-4" th:text="${vehicle.model}"></td>
+                <td class="py-3 px-4" th:text="${vehicle.type}"></td>
+                <td class="py-3 px-4" th:text="${#numbers.formatDecimal(vehicle.price, 2, 2)}"></td>
+                <td class="py-3 px-4" th:text="${vehicle.available}"></td>
+                <td class="py-3 px-4">
+                    <a th:href="@{/vehicles/update/{id}(id=${vehicle.id})}" class="bg-blue-500 text-white px-3 py-1 rounded-lg hover:bg-blue-600 transition mr-2">Update</a>
+                    <a th:href="@{/vehicles/delete/{id}(id=${vehicle.id})}" class="bg-red-500 text-white px-3 py-1 rounded-lg hover:bg-red-600 transition">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div th:if="${#lists.isEmpty(vehicles)}" class="text-center text-gray-500 mt-6">
+        <p>No vehicles found. Be the first to add one!</p>
+    </div>
+</div>
+</body>
+</html>

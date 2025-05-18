@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Vehicle</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center">
+<div class="container mx-auto p-6">
+    <div class="max-w-md mx-auto bg-white rounded-xl shadow-lg p-6 text-center">
+        <h1 class="text-3xl font-bold text-gray-900 mb-6">Delete Vehicle</h1>
+        <p th:if="${error}" class="text-red-500 mb-6" th:text="${error}"></p>
+        <p th:unless="${error}" class="text-green-500 mb-6">Vehicle deleted successfully.</p>
+        <a th:href="@{/vehicles}" class="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-600 transition inline-block">Back to Vehicle List</a>
+    </div>
+</div>
+</body>
+</html>

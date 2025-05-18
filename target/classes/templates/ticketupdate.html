@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Support Ticket</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 min-h-screen flex items-center justify-center">
+<div class="container mx-auto p-6">
+    <div class="max-w-md mx-auto bg-white rounded-xl shadow-lg p-6">
+        <h1 class="text-3xl font-bold text-gray-900 mb-6 text-center">Update Support Ticket</h1>
+        <form th:action="@{/tickets/update}" method="post" class="space-y-4">
+            <input type="hidden" name="id" th:value="${ticket.id}">
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Ticket Type</label>
+                <select name="ticketType" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                    <option value="Technical" th:selected="${ticket.ticketType == 'Technical'}">Technical Issue</option>
+                    <option value="Payment" th:selected="${ticket.ticketType == 'Payment'}">Payment Issue</option>
+                    <option value="Question" th:selected="${ticket.ticketType == 'Question'}">General Question</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Description</label>
+                <textarea name="description" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" rows="4" th:text="${ticket.description}" required></textarea>
+            </div>
+            <div class="flex justify-end space-x-4">
+                <a href="/tickets" class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition">Cancel</a>
+                <button type="submit" class="bg-teal-500 text-white px-4 py-2 rounded-lg hover:bg-teal-600 transition">Update</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
